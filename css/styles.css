@@ -1,0 +1,27 @@
+.wallpaper {
+  overflow: hidden;
+  background-size: 100vw;
+  background-position: 0;
+  height: 92.5vh;
+  width: 100vw;
+  background-color: black;
+}
+.wallpaper video{
+  width: 80vw;
+  margin-left: 10vw;
+  z-index: 100;
+}
+.barra-de-tareas {
+  height: calc(7.5vh - 1px);
+  width: 100vw;
+  background-color: hsl(0, 20%, 16%);
+  border-top: 1px solid hsl(330, 1%, 27%);
+}
+.opacity{
+  background-color: black;
+  position: absolute;
+  opacity: 0%;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+}
