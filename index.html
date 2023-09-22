@@ -3,21 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <title>Escritorio Leandro Di Pardo</title>
+    <meta name="description" content="Pagina web portfolio, creada por leandro di pardo simula la interfaz de windows 11, microsoft.">
+    <link rel="stylesheet" href="/portfolio/css/normalize.css" />
+    <link rel="stylesheet" href="/portfolio/css/styles.css" />
+    <title>📲 Leandro Di Pardo 💻</title>
   </head>
-  <body>
-    <div class="opacity"></div>
-    <div class="window">
-      <article class="wallpaper">
-        <video autoplay muted>
-          <source src="/assets/video/NEW LEAKED Animated Windows 11 Wallpaper!.mp4" type="video/mp4" autoplay>
+  <body scroll="no" class="classDark" data-dark>
+
+        <section class="ventana-abierta movible">
+          <div class="window-buttons">          
+          <div class="minimize">‒</div>
+          <div class="maximize">◻</div>
+          <div class="cerrar">✕</div>
+        </div>
+          <div class="ventana-cuerpo">
+            <div></div>
+        </div>
+      </section>
+
+
+      </section>
+
+        <nav class="menu-derecho">
+          <div class="sepia-button ignore2"></div>
+          <p class="title-filtro">Filtro azul</p>
+          <div class="darkmode-button ignore2"></div>
+          <p class="title-darkmode">Modo oscuro</p>
+        </nav>
+        <nav class="menu menu-translate ignore">
+          <section class="top-menu-container">
+            <img class="search-img"src="/portfolio/assets/img/search.svg" alt="">
+            <input type="text" class="search-menu ignore" placeholder="  Buscar aplicaciones, configuraciones y documentos.">
+          </section>
+          <section class="text-menu-container">
+            <p>Anclado</p>
+            <p>Todas las aplicaciones <span>></span></p>
+          </section>
+          <section class="mid-menu-container-icons">
+            <div class="exe">
+              <img src="/portfolio/assets/img/pdf icon.svg" alt="Icono de pdf">
+              <p>Portfolio.</p>
+            </div>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=5492346415486&text=Hola%20mi%20nombre%20es%20Leandro%20y%20es%20un%20gusto%20hablar%20contigo.">
+              <div class="exe">
+                <img src="/portfolio/assets/img/whatsapp-logo.png" alt="whatsapp logo">
+                <p>Whatsapp</p>
+              </div>
+            </a>
+            <a target="_blank" href="https://www.google.com/">
+              <div class="exe">
+                <img src="/portfolio/assets/img/chrome.svg" alt="Google Chrome">
+                <p>Google Chrome</p>
+              </div>
+            </a>
+            <a href="mailto:leandipardo@gmail.com">
+              <div class="exe">
+                <img src="/portfolio/assets/img/mail.svg" alt="Correo">
+                <p>Correo</p>
+              </div>
+            </a>
+            <div class="exe">
+              <img src="/portfolio/assets/img/Capa 2.png" alt="Roadfight">
+              <p>Road Fight</p>
+            </a>
+            </div>
+          </section>
+          <section class="recomendaciones-menu">
+          </section>
+          <section class="bottom-menu-container">
+            <div class="img-ayuda-nombre">
+              <img src="/portfolio/assets/img/Foto de perfil.png" alt="Foto propia">
+                <div class="cuadro-ayuda">
+                  <p id="texto-ayuda" class="ignore"></p>
+                  <p id="nombre">  Leandro Di Pardo.</p>
+                </div>
+            </div>
+            <div class="icon-base-menu">
+              <img class="power-button" src="/portfolio/assets/img/power.svg" alt="Boton apagado">
+              <img class="ignore" src="" alt="">
+            </div>
+          </section>
+        </nav>
+      <footer class="barra-de-tareas">
+        <section class="menuicon">
+          <img class="button-menu" src="/portfolio/assets/img/icono windows.svg" alt="icono de windows 11">
+        </section>
+        <section class="righticons">
+          <div class="menu-desplegable-conteiner">
+            <img class="menu-desplegable" src="/portfolio/assets/img/arrow triangle.svg" alt="menu desplegable">
+          </div>
+          <div class="clock">
+            <p class="hour"></p>
+            <p class="date"></p>
+          </div>
+        </section>
+      </footer>
+      <div class="blur">
+        <div class="smartphone">
+          <div class="screen-container">
+            <img class="create-smartphone"src="" alt="smartphone imagen">
+            <div class="screen">
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="wallpaper">
+        <video class="background-video" autoplay muted>
+          <source type="video/mp4" autoplay alt="Video-wallpaper">
         </video>
-      </article>
-      <footer class="barra-de-tareas"></footer>
-    </div>
-    <script src="/js/modules.js" type="module"></script>
-    <script src="/js/no_module.js" nomodule></script>
+    <script src="/portfolio/js/modules.js" type="module"></script>
+    <script src="/portfolio/js/no_module.js" nomodule></script>
   </body>
 </html>
