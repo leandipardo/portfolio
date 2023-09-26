@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Pagina web portfolio, creada por leandro di pardo simula la interfaz de windows 11, microsoft.">
-    <link rel="stylesheet" href="/portfolio/css/normalize.css" />
-    <link rel="stylesheet" href="/portfolio/css/styles.css" />
+    <link rel="stylesheet" href="/portfolio/css/normalize.css"/>
+    <link rel="stylesheet" href="/portfolio/css/styles.css"/>
     <title>📲 Leandro Di Pardo 💻</title>
+    <link rel="shortcut icon" href="#" />
   </head>
-  <body scroll="no" class="classDark" data-dark>
-
+  <body scroll="no" class="classDark" data-dark="true">
+    <audio autoplay="false" id="audio"src="/portfolio/assets/resources/SnapSave.io - Windows 11 Startup Sound _Sonido de Inicio Windows 11 (128 kbps).mp3"></audio>
+        
+    
+    
         <section class="ventana-abierta movible">
           <div class="window-buttons">          
-          <div class="minimize">‒</div>
-          <div class="maximize">◻</div>
-          <div class="cerrar">✕</div>
-        </div>
-          <div class="ventana-cuerpo">
-            <div></div>
-        </div>
+            <input name="minimizar" type="button" value="‒" class="minimize">
+            <input name="maximizar" type="button" value="◻" class="maximize">
+            <input name="cerrar" type="button"l value="✕" class="cerrar">
+          </div>
+            <div class="ventana-cuerpo">
+              <!-- <iframe src="https://www.youtube.com/embed/dXBohfjc4WA" width="99%" height="99%" allowfullscreen title="Video explicativo"></iframe> -->
+            </div>
       </section>
-
-
       </section>
-
-        <nav class="menu-derecho">
-          <div class="sepia-button ignore2"></div>
-          <p class="title-filtro">Filtro azul</p>
-          <div class="darkmode-button ignore2"></div>
-          <p class="title-darkmode">Modo oscuro</p>
+        <nav class="menu-derecho menu-translate">
+          <div class="sepia-button ignore2 ">
+            <svg class="sepiaAnimation sepiaBtn ignore2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path class="sepiaBtn ignore2" d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+          </div>
+          <p class="title-filtro">Filtro azul.</p>
+          <div class="darkmode-button ignore2">
+            <div class="sun ignore2">
+              <div class="moon ignore2"></div>
+            </div>
+          </div>
+          <p class="title-darkmode">Modo claro u oscuro.</p>
         </nav>
         <nav class="menu menu-translate ignore">
           <section class="top-menu-container">
-            <img class="search-img"src="/portfolio/assets/img/search.svg" alt="">
-            <input type="text" class="search-menu ignore" placeholder="  Buscar aplicaciones, configuraciones y documentos.">
+            <img class="search-img" src="/portfolio/assets/img/search.svg" alt="">
+            <input type="text" name="menu-text" id="menu-search" class="search-menu ignore" placeholder="  Buscar aplicaciones, configuraciones y documentos.">
           </section>
           <section class="text-menu-container">
             <p>Anclado</p>
             <p>Todas las aplicaciones <span>></span></p>
           </section>
           <section class="mid-menu-container-icons">
-            <div class="exe">
+            <div class="exe portfolio">
               <img src="/portfolio/assets/img/pdf icon.svg" alt="Icono de pdf">
               <p>Portfolio.</p>
             </div>
             <a target="_blank" href="https://api.whatsapp.com/send/?phone=5492346415486&text=Hola%20mi%20nombre%20es%20Leandro%20y%20es%20un%20gusto%20hablar%20contigo.">
               <div class="exe">
-                <img src="/portfolio/assets/img/whatsapp-logo.png" alt="whatsapp logo">
-                <p>Whatsapp</p>
+                <img src="/portfolio/assets/img/whatsapp-logo.png" alt="WhatsApp logo">
+                <p>WhatsApp</p>
               </div>
             </a>
             <a target="_blank" href="https://www.google.com/">
@@ -63,7 +71,7 @@
               </div>
             </a>
             <div class="exe">
-              <img src="/portfolio/assets/img/Capa 2.png" alt="Roadfight">
+              <img src="/portfolio/assets/img/street rage ico.png" alt="Roadfight">
               <p>Road Fight</p>
             </a>
             </div>
@@ -72,23 +80,19 @@
           </section>
           <section class="bottom-menu-container">
             <div class="img-ayuda-nombre">
-              <img src="/portfolio/assets/img/Foto de perfil.png" alt="Foto propia">
+              <img class="foto-perfil" src="/portfolio/assets/img/Foto de perfil2.png" alt="Foto propia">
                 <div class="cuadro-ayuda">
                   <p id="texto-ayuda" class="ignore"></p>
                   <p id="nombre">  Leandro Di Pardo.</p>
                 </div>
-            </div>
-            <div class="icon-base-menu">
-              <img class="power-button" src="/portfolio/assets/img/power.svg" alt="Boton apagado">
-              <img class="ignore" src="" alt="">
+                  <img class="power-button" src="/portfolio/assets/img/power.svg" alt="Botón apagado">
+              </nav>
             </div>
           </section>
-        </nav>
       <footer class="barra-de-tareas">
-        <section class="menuicon">
+        <div class="middle-menu-conteiner">
           <img class="button-menu" src="/portfolio/assets/img/icono windows.svg" alt="icono de windows 11">
-        </section>
-        <section class="righticons">
+        </div>
           <div class="menu-desplegable-conteiner">
             <img class="menu-desplegable" src="/portfolio/assets/img/arrow triangle.svg" alt="menu desplegable">
           </div>
@@ -111,6 +115,7 @@
         <video class="background-video" autoplay muted>
           <source type="video/mp4" autoplay alt="Video-wallpaper">
         </video>
+      </section>
     <script src="/portfolio/js/modules.js" type="module"></script>
     <script src="/portfolio/js/no_module.js" nomodule></script>
   </body>

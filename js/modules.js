@@ -8,19 +8,19 @@ import abrirMenuIzq from "./menu_desplegable.js";
 import sepia from "./sepia.js";
 import darkMode from "./darkmode.js";
 import cartelInicio from "./cartelInicio.js";
+import comportamientoVentanas from "./controlVentana.js";
 d.addEventListener("DOMContentLoaded", (e)=>{
     menuSlide(".button-menu",".menu",".ignore",".exe");
     abrirMenuIzq(".menu-desplegable", ".menu-derecho",".ignore2",".exe2");
-    explicacion(".button-menu","#texto-ayuda");
     time();
     mover(".movible");
     sepia(".sepia-button");
-    darkMode(".darkmode-button");
-    cartelInicio();
+    explicacion(".button-menu","#texto-ayuda");
+    comportamientoVentanas(".portfolio");
 });
 d.addEventListener("mousewheel", (r)=>{
     smartphone(r);
 })
-
-
-
+cartelInicio();
+darkMode(".darkmode-button");
+console.log('%cGracias por visitar mi portfolio. Espero que te guste lo que ves.🫡', 'background-color:#3e3742;border-radius:40px;margin:20px;padding:10px;font-family: "Segoe UI";font-size:1rem; color: white;')

@@ -1,22 +1,27 @@
 const d = document,
+ls=localStorage,
 $body = d.querySelector(".classDark");
 let firstTime = true,
-$div = document.createElement("div");
+$div = document.createElement("div"),
+$audio = document.getElementById("audio"),
+$src = undefined;
+d.addEventListener("DOMContentLoaded", (e)=>{
+    if(ls.getItem("theme") === "light") $src=`/portfolio/assets/video/wallpaper light mode.mp4`;
+    if(ls.getItem("theme") === "dark") $src=`/portfolio/assets/video/wallpaper dark mode.mp4`;
+})
 export default function cartelInicio(){
     $div.classList.add("parrafo-inicio");
     $div.innerHTML =`
     <p>Bienvenido.</p>`;
     $body.appendChild($div);
-    setTimeout(() => {
         $div.style.opacity=1;
-    }, 1);
-    
     d.addEventListener("click",(e)=>{
         if (firstTime === true){
+            $audio.play();
             $div.style.opacity=0;
             let $video = d.querySelector(".background-video");
             document.documentElement.requestFullscreen();
-            $video.setAttribute("src",`/portfolio/assets/video/wallpaper dark mode.mp4`);
+            $video.setAttribute("src",`${$src}`);
             firstTime = false;
             setTimeout(() => {
                 $div.classList.toggle("parrafo-inicio");

@@ -1,3 +1,4 @@
+
 const d = document;
 //funcion creada por marta para mover ventanas.
 export default function mover(caja) {
@@ -9,12 +10,9 @@ export default function mover(caja) {
             el.dataset.mouseY = e.clientY;
         });
     }
-
-    
     d.addEventListener("mousemove", moveMouse);
-    
-    
     d.addEventListener("mousedown", (e) => {
+        e.preventDefault();
         clearInterval(inter);
         if (e.target.matches(caja)) {
             let objeto = e.target;
@@ -33,7 +31,7 @@ export default function mover(caja) {
                 objeto.dataset.transformX = correccion.oldPosX + (objeto.dataset.mouseX - correccion.x);
                 objeto.dataset.transformY = correccion.oldPosY + (objeto.dataset.mouseY - correccion.y);
                 objeto.setAttribute("style", `transform: translate(${objeto.dataset.transformX}px, ${objeto.dataset.transformY}px)`);
-            }, Infinity);
+            }, 0);
         }
     });
     d.addEventListener("mouseup", e => {
@@ -71,9 +69,9 @@ export default function mover(caja) {
                 correccion.oldPosY = parseInt(objeto.dataset.transformY);
             }
                 inter = setInterval(() => {
+                    console.log()
                     objeto.dataset.transformX = correccion.oldPosX + (objeto.dataset.mouseX - correccion.x);
                     objeto.dataset.transformY = correccion.oldPosY + (objeto.dataset.mouseY - correccion.y);
-                    console.log(correccion.x, correccion.y);
                     objeto.setAttribute("style", `transform: translate(${objeto.dataset.transformX}px, ${objeto.dataset.transformY}px)`);
                 }, Infinity);
                 
