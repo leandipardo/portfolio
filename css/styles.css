@@ -1,4 +1,4 @@
-          /* BASICOS CSS */
+          /* BÁSICOS CSS */
 :root{
   height: 100vh;
   width: 100vw;
@@ -21,7 +21,10 @@ p{
   --dark-mode-background:black;
   --ventana-cuerpo:rgba(0, 0, 0, 0.781);
   --transparencia-inicio:hsla(0, 20%, 16%, 0.932);
+  --width:auto;
+  --height:100vh;
   --filter: invert();
+  --object-fit:none;
 }
 .classLight{
   --dark-mode-main:hsl(210, 61%, 93%);
@@ -36,7 +39,10 @@ p{
   --dark-mode-background:white;
   --ventana-cuerpo:rgba(255, 255, 255, 0.781);
   --transparencia-inicio:hsla(210, 61%, 93%, 0.932);
+  --width:auto;
+  --height:auto;
   --filter: none;
+  --object-fit:cover;
 }
 body{
   height: 100vh;
@@ -64,16 +70,22 @@ body{
 }
 .wallpaper{
   height: calc(100vh - 45px);
+  top: 0;
   width: 100vw;
-  background-color: var(--dark-mode-background);
   display: flex;
   flex-flow: row nowrap;
+  background-color: black;
   justify-content: center;
   align-items: flex-end;
   flex-grow: 1;
   flex-shrink: 1;
+  overflow: hidden;
 }
 .background-video{
+  position: relative;
+  top: var(--top);
+  width: var(--width);
+  height: var(--height);
   object-fit: cover;
 }
 .blur{
@@ -114,6 +126,8 @@ body{
   height: 35px;
   width: 35px;
   border-radius: 2px;
+  animation: crearVentana .5s ease 0s 1 ;
+  animation-play-state: running;
 }
 .button-menu:hover{
   background-color: var(--dark-mode-hover);
@@ -181,7 +195,7 @@ body{
   z-index: 2;
   background-color: var(--dark-mode-main-transparecy);
   backdrop-filter: blur(25px);
-  transition: .15s ease;
+  transition: transform .35s ease;
   border:solid 1px var(--dark-mode-border);
   box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
   border-radius: 10px;
@@ -192,6 +206,7 @@ body{
   grid-template-rows: 1fr .5fr 1fr .5fr .5fr .5fr;
   gap: 0 10px;
   padding: 10px;
+  visibility: visible;
 }
 
 /* botones del menu */
@@ -273,15 +288,25 @@ body{
   z-index: 2;
   background-color: var(--dark-mode-main-transparecy);
   backdrop-filter: blur(25px);
-  transition: transform .15s ease;
+  transition: transform .35s ease-in;
   border-radius: 10px;
   border:solid 1px var(--dark-mode-border);
   box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
   -webkit-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
+  visibility: visible;
 }
 .menu-translate{
   transform: translateY(100vh);
+  animation: opacityMenu .40s linear 0s 1 forwards;
+}
+@keyframes opacityMenu {
+  99%{
+    visibility: visible;
+  }100%{
+    visibility: hidden;
+  }
+  
 }
 
 /* Zona superior */
@@ -434,7 +459,7 @@ body{
   animation: backgroundPhoto 3s ease 1s infinite alternate forwards;
   background-color: var(--dark-mode-hover);
   animation-play-state: running;
-  transition:  1.5s  .3s ease;
+  transition:  .6s  .3s ease;
 }
 .foto-perfil:hover{
   height: 5rem;
@@ -530,14 +555,26 @@ body{
           /* VENTANAS */
 .ventana-abierta{
   position: absolute;
-  width: max-content;
-  top: 10vh;
-  left: 10vw;
-  height: 35px;
-  background-color: var(--dark-mode-main);
+  width: 600px;
+  height: 90vh;
+  top: 0;
+  left: 0;
   z-index: 1;
   outline: solid 1px var(--dark-mode-border);
+  background-color: var(--ventana-cuerpo);
+  backdrop-filter: blur(5px);
   border-radius: 3px 3px 0 0;
+  animation: crearVentana .5s ease 0s 1 ;
+  animation-play-state: running;
+  overflow-y: scroll;
+}
+@keyframes crearVentana {
+  0%{
+    opacity: 0;
+  }100%{
+    opacity: 1;
+  }
+  
 }
 .window-buttons{
 position: relative;
@@ -547,9 +584,9 @@ left: calc(100% - 105px);
 filter: grayscale(1);
 }
 .window-buttons input{
+position: relative;
 font-family:sans-serif;
 font-size: 1rem;
-position: relative;
 top:0;
 height: 35px;
 width: 35px;
@@ -559,6 +596,7 @@ justify-content: center;
 align-items: center;
 border: none;
 background-color: transparent;
+color: var(--dark-mode-font);
 }
 .window-buttons input:hover{
 background-color: var(--dark-mode-hover);
@@ -568,24 +606,38 @@ transform: scale(.8);
 }
 .ventana-cuerpo{
   position: relative;
-  width: 320px;
-  height: 240px;
-  top: 0px;
+  width: 100%;
+  height: calc(100% - 35px);
   z-index: 1;
-  background-color: var(--ventana-cuerpo);
+  background-color: var(--dark-mode-background);
   outline: solid 1px var(--dark-mode-border);
   border-radius: 0 0 5px 5px;
   box-shadow: 10px 10px 23px -9px rgb(0, 0, 0);
   -webkit-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
 }
+.maximizar-ventana{
+  transform:translate(0,0);
+  top:0;
+  left:0;
+  width: 100vw;
+  height: calc(100vh - 45px);
+  transition: .5s ease;
+}
+.minimizar-ventana{
+  transform: translate(45vw,100vh)scale(.1);
+}
+.transition{
+  transition: .25s ease;
+}
 
           /*MEDIAQUERYS */
 
 @media (max-width:1024px) {
   .background-video{
-    height: 100vh;
+    height: calc(100vh - 45px);
     width: auto;
+    top:0;
   }
   .menu{
     width: 95vw;

@@ -1,9 +1,8 @@
-
 const d = document;
-//funcion creada por marta para mover ventanas.
+//función creada por marta para mover ventanas.
 export default function mover(caja) {
     let inter;
-    const element = d.querySelectorAll(caja);
+    const element = d.querySelectorAll(caja); //selecciona .movible
     const moveMouse = (e) => {
             element.forEach(el => { 
             el.dataset.mouseX = e.clientX;
@@ -37,7 +36,6 @@ export default function mover(caja) {
     d.addEventListener("mouseup", e => {
         clearInterval(inter);
     });
-
     // ---------------------touch screen-----------------------
     
     const moveTouch = (e) => {
@@ -46,7 +44,6 @@ export default function mover(caja) {
             el.dataset.mouseY = e.touches[0].clientY;
         });
     }
-    
     d.addEventListener("touchmove", moveTouch);
     d.addEventListener("touchstart", (e) => {
         clearInterval(inter);
@@ -69,12 +66,10 @@ export default function mover(caja) {
                 correccion.oldPosY = parseInt(objeto.dataset.transformY);
             }
                 inter = setInterval(() => {
-                    console.log()
                     objeto.dataset.transformX = correccion.oldPosX + (objeto.dataset.mouseX - correccion.x);
                     objeto.dataset.transformY = correccion.oldPosY + (objeto.dataset.mouseY - correccion.y);
                     objeto.setAttribute("style", `transform: translate(${objeto.dataset.transformX}px, ${objeto.dataset.transformY}px)`);
-                }, Infinity);
-                
+                }, 0);
             }
     });
     d.addEventListener("touchend", e => {
