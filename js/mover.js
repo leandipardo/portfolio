@@ -1,6 +1,6 @@
 const d = document;
 //función creada por marta para mover ventanas.
-export default function mover(caja) {
+export default function mover(caja){
     let inter;
     const element = d.querySelectorAll(caja); //selecciona .movible
     const moveMouse = (e) => {
@@ -25,7 +25,6 @@ export default function mover(caja) {
                 correccion.oldPosX = parseInt(objeto.dataset.transformX);
                 correccion.oldPosY = parseInt(objeto.dataset.transformY);
             }
-            
             inter = setInterval(() => {
                 objeto.dataset.transformX = correccion.oldPosX + (objeto.dataset.mouseX - correccion.x);
                 objeto.dataset.transformY = correccion.oldPosY + (objeto.dataset.mouseY - correccion.y);
@@ -75,7 +74,4 @@ export default function mover(caja) {
     d.addEventListener("touchend", e => {
             clearInterval(inter);
     });
-
-
-
 }

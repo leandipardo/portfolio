@@ -1,7 +1,9 @@
 const d =  document,
 $body = d.querySelector("body");
 let transformX,
-transformY;
+transformY,
+ttransformX,
+ttransformY;
 const buscarPadre = (e, clase) =>{
     let p = e.target;
     while(!p.className.includes(clase)){
@@ -17,7 +19,14 @@ export default function botones(v){
         $ventanas = d.querySelectorAll(".ventana-abierta"); // guarda todas las ventanas en $r
         $ventanas.forEach((elemento)=>{ //recorre todas las ventanas para buscar la que coincide con el boton
             if(elemento.getAttribute("identificador") === $boton.getAttribute("identificador")){
-                if(elemento.className.includes("minimizar-ventana")){ //si la ventana es minimizada coloca la posicion anterior
+                if(elemento.className.includes("maximizar-ventana") && elemento.className.includes("minimizar-ventana")){
+                    elemento.style.transform=`translate(0px,0px)`;
+                    elemento.classList.add("transition");
+                    elemento.classList.toggle("minimizar-ventana");
+                    setTimeout(() => {
+                        elemento.classList.remove("transition");
+                    }, 250);
+                }else if(elemento.className.includes("minimizar-ventana")){ //si la ventana es minimizada coloca la posicion anterior
                     elemento.style.transform=`translate(${transformX}px,${transformY}px)`;
                     elemento.classList.add("transition");
                     elemento.classList.toggle("minimizar-ventana");
@@ -46,11 +55,14 @@ export default function botones(v){
             setTimeout(() => {
                 padre.classList.remove("transition");
             }, 250);
-        }else{
+            
+        }if(padre.className.includes("minimizar-ventana")){}else{
             padre.classList.add("transition");
             padre.classList.toggle("minimizar-ventana");
-            transformX = padre.dataset.transformX;
-            transformY = padre.dataset.transformY;
+            transformX = 0;
+            transformY = 0;
+
+
             padre.style.transform=``;
             setTimeout(() => {
                 padre.classList.remove("transition");

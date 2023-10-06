@@ -8,7 +8,7 @@ $video = d.querySelector(".background-video"),
 $moon = d.querySelector(".moon"),
 $sun = d.querySelector(".sun"),
 ubiVideo = undefined,
-darkLight = "light";
+darkLight = "dark";
 const darkModeF = () => {
     darkLight ="dark";
     ubiVideo = `/portfolio/assets/video/wallpaper dark mode.mp4`;

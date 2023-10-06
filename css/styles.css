@@ -1,7 +1,7 @@
           /* BÁSICOS CSS */
 :root{
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -21,6 +21,8 @@ p{
   --dark-mode-background:black;
   --ventana-cuerpo:rgba(0, 0, 0, 0.781);
   --transparencia-inicio:hsla(0, 20%, 16%, 0.932);
+  --box-shadow:14px 14px 20px #0f0f0ffa, -14px -14px 20px #080808da;
+
   --width:auto;
   --height:100vh;
   --filter: invert();
@@ -34,19 +36,20 @@ p{
   --dark-mode-hover-plus:hsl(0, 0%, 54%);
   --dark-mode-search:hsl(0, 0%, 100%);
   --dark-mode-contrast: hsl(0, 0%, 58%, 0.688);
-  --dark-mode-font:hsl(0, 0%, 35%);
+  --dark-mode-font:hsl(0, 0%, 0%);
   --dark-mode-bottom-menu:hsla(203, 10%, 75%, 0.205);
   --dark-mode-background:white;
   --ventana-cuerpo:rgba(255, 255, 255, 0.781);
   --transparencia-inicio:hsla(210, 61%, 93%, 0.932);
+  --box-shadow:14px 14px 20px #cbced1, -14px -14px 20px white;
   --width:auto;
   --height:auto;
   --filter: none;
   --object-fit:cover;
 }
 body{
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   overflow: hidden; 
   transition: filter 1s ease;
   color:var(--dark-mode-font);
@@ -55,8 +58,8 @@ body{
 .parrafo-inicio{
   position: absolute;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   background-color: var(--transparencia-inicio);
   color: var(--dark-mode-font);
   font-weight:200;
@@ -69,9 +72,9 @@ body{
   opacity: 0;
 }
 .wallpaper{
-  height: calc(100vh - 45px);
+  height: calc(100dvh - 45px);
   top: 0;
-  width: 100vw;
+  width: 100dvw;
   display: flex;
   flex-flow: row nowrap;
   background-color: black;
@@ -92,7 +95,7 @@ body{
   display: hidden;
   position:absolute;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   z-index: -1;
   transition: backdrop-filter .5s ease;
@@ -103,9 +106,9 @@ body{
 .barra-de-tareas {
   position: absolute;
   height: 45px;
-  top: calc(100vh - 45px);
-  width: 100vw;
-  z-index: 2;
+  top: calc(100dvh - 45px);
+  width: 100dvw;
+  z-index: 10;
   background-color:var(--dark-mode-main);
   border-top: 1px solid var(--dark-mode-border);
   display: flex;
@@ -186,13 +189,13 @@ body{
           /* MENU DERECHO*/
 .menu-derecho{
   position: absolute;
-  width: 30.3vw;
+  width: 30.3dvw;
   height:auto;
-  left: 68.1vw;
-  bottom: 0vh;
+  left: 68.1dvw;
+  bottom: 0dvh;
   margin-bottom: 50px;
   overflow: hidden;
-  z-index: 2;
+  z-index: 10;
   background-color: var(--dark-mode-main-transparecy);
   backdrop-filter: blur(25px);
   transition: transform .35s ease;
@@ -278,14 +281,14 @@ body{
   position: absolute;
   display:flex;
   flex-flow: column nowrap;
-  width: 33.3vw;
+  width: 33.3dvw;
   height:auto;
   bottom: 0;
-  left: 33.3vw;
-  min-height: 50vh;
+  left: 33.3dvw;
+  min-height: 50dvh;
   margin-bottom: 50px;
   overflow: hidden;
-  z-index: 2;
+  z-index: 10;
   background-color: var(--dark-mode-main-transparecy);
   backdrop-filter: blur(25px);
   transition: transform .35s ease-in;
@@ -297,7 +300,7 @@ body{
   visibility: visible;
 }
 .menu-translate{
-  transform: translateY(100vh);
+  transform: translateY(100dvh);
   animation: opacityMenu .40s linear 0s 1 forwards;
 }
 @keyframes opacityMenu {
@@ -515,20 +518,20 @@ body{
           /* SMARTPHONE */
 .smartphone{
   position: absolute;
-  top: 200vh;
-  height: 50vh;
-  width: 100vw;
+  top: 200dvh;
+  height: 50dvh;
+  width: 100dvw;
   z-index: 10;
   display: flex;
   flex-shrink: 1;
   justify-content: center;
   transition: 1s ease;
-  transform: rotateZ(45deg)translateX(100vw)scale(1.5);
+  transform: rotateZ(45deg)translateX(100dvw)scale(1.5);
 }
 .screen-container{
   position: relative;
   margin-top: 5%;
-  height: 60vh;
+  height: 60dvh;
   align-self: baseline;
   overflow: hidden;
 }
@@ -554,9 +557,11 @@ body{
 
           /* VENTANAS */
 .ventana-abierta{
+  transform-origin: center;
   position: absolute;
-  width: 600px;
-  height: 90vh;
+  width: 35dvw;
+  min-width: 350px;
+  height: 90dvh;
   top: 0;
   left: 0;
   z-index: 1;
@@ -566,8 +571,10 @@ body{
   border-radius: 3px 3px 0 0;
   animation: crearVentana .5s ease 0s 1 ;
   animation-play-state: running;
-  overflow-y: scroll;
 }
+.ventana-abierta::-webkit-scrollbar{
+  display: none;
+  }
 @keyframes crearVentana {
   0%{
     opacity: 0;
@@ -577,14 +584,17 @@ body{
   
 }
 .window-buttons{
-position: relative;
+position: sticky;
+top: 0;
 display: flex;
 width: fit-content;
 left: calc(100% - 105px);
 filter: grayscale(1);
+z-index: 5;
 }
 .window-buttons input{
-position: relative;
+position: sticky;
+top: 0;
 font-family:sans-serif;
 font-size: 1rem;
 top:0;
@@ -597,6 +607,7 @@ align-items: center;
 border: none;
 background-color: transparent;
 color: var(--dark-mode-font);
+z-index: 5;
 }
 .window-buttons input:hover{
 background-color: var(--dark-mode-hover);
@@ -607,45 +618,55 @@ transform: scale(.8);
 .ventana-cuerpo{
   position: relative;
   width: 100%;
-  height: calc(100% - 35px);
+  height: fit-content;
   z-index: 1;
-  background-color: var(--dark-mode-background);
   outline: solid 1px var(--dark-mode-border);
   border-radius: 0 0 5px 5px;
   box-shadow: 10px 10px 23px -9px rgb(0, 0, 0);
   -webkit-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 6px 23px -9px rgba(0,0,0,0.75);
+  overflow: scroll;
+  height: calc(100% - 35px);
+  bottom: 0;
+}
+.ventana-cuerpo::-webkit-scrollbar{
+  visibility: hidden;
+}
+.ventana-cuerpo::-webkit-scrollbar-corner{
+  visibility: hidden;
 }
 .maximizar-ventana{
   transform:translate(0,0);
   top:0;
   left:0;
-  width: 100vw;
-  height: calc(100vh - 45px);
+  width: 100dvw;
+  height: calc(100dvh - 45px);
   transition: .5s ease;
 }
 .minimizar-ventana{
-  transform: translate(45vw,100vh)scale(.1);
+  transform: translate(50dvw,100dvh)scale(.1);
 }
 .transition{
   transition: .25s ease;
 }
-
+.actual{
+  z-index: 4;
+}
           /*MEDIAQUERYS */
 
 @media (max-width:1024px) {
   .background-video{
-    height: calc(100vh - 45px);
+    height: calc(100dvh - 45px);
     width: auto;
     top:0;
   }
   .menu{
-    width: 95vw;
-    left: 2.5vw;
+    width: 95dvw;
+    left: 2.5dvw;
   }
   .menu-derecho{
-    width: calc(95vw - 10px);
-    left: calc(2.5vw - 6px);
+    width: calc(95dvw - 10px);
+    left: calc(2.5dvw - 6px);
   }
   .cuadro-ayuda{
     width: 70%;
@@ -655,3 +676,5 @@ transform: scale(.8);
     height: 7rem;
   }
 }
+
+
